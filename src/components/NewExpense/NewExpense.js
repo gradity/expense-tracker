@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './NewExpense.css';
 
 import ExpenseForm from './ExpenseForm';
 
 const NewExpense = ({ onAddExpense }) => {
+  const [showForm, setShowForm] = useState(false);
+
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    // console.log(expenseData);
     onAddExpense(expenseData);
+  };
+
+  const toggleFormHandler = () => {
+    setShowForm((prevShowForm) => {
+      return !prevShowForm;
+    });
   };
 
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {showForm ? (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          onToggleForm={toggleFormHandler}
+        />
+      ) : (
+        <button onClick={toggleFormHandler}>Add New Expense</button>
+      )}
     </div>
   );
 };

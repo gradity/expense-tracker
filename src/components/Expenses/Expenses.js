@@ -7,10 +7,9 @@ import Card from '../Layout/Card';
 import ExpenseList from './ExpenseList';
 import ExpenseFilter from './ExpenseFilter';
 import ExpenseItem from './ExpenseItem';
-import Something from './Something';
 
 const Expenses = ({ expenses }) => {
-  const [filterYear, setFilterYear] = useState('2022');
+  const [filterYear, setFilterYear] = useState('all');
 
   const FilterYearHandler = (year) => {
     setFilterYear(year);
