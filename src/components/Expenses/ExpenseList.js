@@ -5,9 +5,9 @@ import './ExpenseList.css';
 import ExpenseItem from './ExpenseItem';
 
 const ExpenseList = ({ expenseItems }) => {
-  console.log(expenseItems);
+  // console.log(expenseItems);
   if (expenseItems.length === 0) {
-    <h2 className="expenses-list__fallback">Found no expenses.</h2>;
+    return <h2 className="expenses-list__fallback">Found no expenses.</h2>;
   }
 
   return (

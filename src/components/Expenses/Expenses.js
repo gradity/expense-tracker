@@ -6,7 +6,7 @@ import Card from '../Layout/Card';
 
 import ExpenseList from './ExpenseList';
 import ExpenseFilter from './ExpenseFilter';
-import ExpenseItem from './ExpenseItem';
+import ExpenseChart from './ExpenseChart';
 
 const Expenses = ({ expenses }) => {
   const [filterYear, setFilterYear] = useState('all');
@@ -29,7 +29,7 @@ const Expenses = ({ expenses }) => {
   return (
     <Card className="expenses">
       <ExpenseFilter onFilterYear={FilterYearHandler} selected={filterYear} />
-
+      {filterYear !== 'all' && <ExpenseChart expenses={shownExpenses} />}
       {/* {expenseList.length === 0 && <p>No expenses found.</p>}
       {expenseList} */}
       <ExpenseList expenseItems={shownExpenses} />

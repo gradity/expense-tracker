@@ -37,7 +37,7 @@ const ExpenseForm = ({ onSaveExpenseData, onToggleForm }) => {
 
     const expenseData = {
       title,
-      amount,
+      amount: +amount,
       date: new Date(date),
     };
 
