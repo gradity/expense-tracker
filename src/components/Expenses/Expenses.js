@@ -9,7 +9,7 @@ import ExpenseFilter from './ExpenseFilter';
 import ExpenseItem from './ExpenseItem';
 import Something from './Something';
 
-const ExpenseList = ({ expenses }) => {
+const Expenses = ({ expenses }) => {
   const [filterYear, setFilterYear] = useState('2022');
 
   const FilterYearHandler = (year) => {
@@ -23,19 +23,19 @@ const ExpenseList = ({ expenses }) => {
   const shownExpenses = filterYear === 'all' ? expenses : expensesFiltered;
 
   // console.log(expensesFiltered);
-  const expenseList = shownExpenses.map((expense) => {
-    return <ExpenseItem expense={expense} key={expense.id} />;
-  });
+  // const expenseList = shownExpenses.map((expense) => {
+  //   return <ExpenseItem expense={expense} key={expense.id} />;
+  // });
 
   return (
     <Card className="expenses">
       <ExpenseFilter onFilterYear={FilterYearHandler} selected={filterYear} />
 
-      {expenseList.length === 0 && <p>No expenses found.</p>}
-      {expenseList}
-      {/* <ExpenseList expenseItems={shownExpenses} /> */}
+      {/* {expenseList.length === 0 && <p>No expenses found.</p>}
+      {expenseList} */}
+      <ExpenseList expenseItems={shownExpenses} />
     </Card>
   );
 };
 
-export default ExpenseList;
+export default Expenses;
