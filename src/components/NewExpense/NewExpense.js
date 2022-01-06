@@ -5,7 +5,8 @@ import './NewExpense.css';
 
 import ExpenseForm from './ExpenseForm';
 
-const NewExpense = ({ onAddExpense }) => {
+// const NewExpense = ({ onAddExpense }) => {
+export default ({onAddExpense}) => {
   const [showForm, setShowForm] = useState(false);
 
   const saveExpenseDataHandler = (enteredExpenseData) => {
@@ -37,4 +38,4 @@ const NewExpense = ({ onAddExpense }) => {
   );
 };
 
-export default NewExpense;
+// export default NewExpense;
